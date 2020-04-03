@@ -1,32 +1,88 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <vue-particles
+            class="vue-particles"
+            color="#dedede"
+            :particleOpacity="0.7"
+            :particlesNumber="80"
+            shapeType="circle"
+            :particleSize="4"
+            linesColor="#dedede"
+            :linesWidth="1"
+            :lineLinked="true"
+            :lineOpacity="0.4"
+            :linesDistance="150"
+            :moveSpeed="3"
+            :hoverEffect="true"
+            hoverMode="grab"
+            :clickEffect="true"
+            clickMode="push"
+    ></vue-particles>
+    <router-view></router-view>
+    <el-row>
+      <div class="footer" style="background-color:rgba(255,255,255, 0.7)">
+        <p id="footer-info">
+          ©
+          <span>2020-2020</span>
+          <span>
+            <a class="record" href="http://beian.miit.gov.cn" target="_blank">• 闽ICP备20003624号</a>
+          </span>
+        </p>
+      </div>
+    </el-row>
+    <p>滴滴滴多</p>
   </div>
 </template>
 
+<script>
+  export default {
+    name: "app"
+  };
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  .vue-particles {
+    position: fixed;
+    background-image: url("https://www.sushao.top/api/blog/home/img/-1");
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+</style>
+<style scoped>
+  #footer-info {
+    color: #444;
+    font-family: BlinkMacSystemFont, "Microsoft YaHei", "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    text-align: center;
+    font-size: 11px;
+    margin: 5px 0;
+    line-height: 16px;
+    padding: 0;
+    word-break: break-word;
+  }
+  .footer {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, 0);
+    width: fit-content;
+    width: -moz-fit-content;
+  }
+  .record {
+    text-align: center;
+    font-size: 11px;
+    line-height: 16px;
+    word-break: break-word;
+    background-color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    transition: all 0.24s ease;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: Consolas, Menlo, Monaco, "lucida console", "Liberation Mono",
+    "Courier New", "andale mono", monospaceX, monospace, sans-serif;
+  }
 </style>

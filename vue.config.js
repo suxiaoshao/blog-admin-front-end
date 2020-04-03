@@ -5,33 +5,31 @@ module.exports = {
     chainWebpack: config => {
         // 发布模式
         config.when(process.env.NODE_ENV === 'production', config => {
-            config.entry('app').clear().add('./src/main.js')
+            config.entry('app').clear().add('./src/pro.js');
             config.set('externals', {
                 'vue': 'Vue',
-                // 'element-ui': 'ElEMENT',
                 'vue-router': 'VueRouter',
                 'axios': 'axios',
                 'element-ui': 'ElementUI',
-            })
+            });
             config.plugin('html').tap(args => {
-                args[0].isProd = true
+                args[0].isProd = true;
                 return args
             })
-        })
+        });
         // 开发模式
         config.when(process.env.NODE_ENV === 'development', config => {
-            config.entry('app').clear().add('./src/main.js')
-            config.set('externals', {
-                'vue': 'Vue',
-                // 'element-ui': 'ElEMENT',
-                'vue-router': 'VueRouter',
-                'axios': 'axios',
-                'element-ui': 'ElementUI',
-            })
+            config.entry('app').clear().add('./src/main.js');
+            // config.set('externals', {
+            //     'vue': 'Vue',
+            //     'vue-router': 'VueRouter',
+            //     'axios': 'axios',
+            //     'element-ui': 'ElementUI',
+            // });
             config.plugin('html').tap(args => {
-                args[0].isProd = false
+                args[0].isProd = false;
                 return args
             })
         })
     }
-}
+};
