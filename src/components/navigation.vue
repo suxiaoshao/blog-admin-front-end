@@ -1,42 +1,25 @@
 <template>
-    <div class="Navigation" @mouseenter="enter" @mouseleave="leave">
+    <div class="Navigation" @mouseenter="enter" @mouseleave="leave" style="width: 100%">
+
         <!-- 电脑的导航栏 -->
-        <el-menu
-                v-if="!is_phone"
-                :default-active="activeIndex"
-                class="el-menu-demo"
-                mode="horizontal"
-                @select="select"
-                :style="style[style_index]"
-        >
+        <el-menu v-if="!is_phone" :default-active="activeIndex" mode="horizontal" @select="select"
+                 :style="style[style_index]">
+
             <!-- 普通信息框 -->
-            <el-menu-item
-                    v-for="(item,index) in navigation_item"
-                    :key="index"
-                    :index="String(index)"
-            >{{item.name}}
+            <el-menu-item v-for="(item,index) in navigation_item" :key="index" :index="String(index)">{{item.name}}
             </el-menu-item>
         </el-menu>
 
         <!-- 手机的导航栏 -->
-        <el-menu
-                v-if="is_phone"
-                :default-active="activeIndex"
-                class="el-menu-demo"
-                mode="horizontal"
-                @select="select"
-                :style="style[style_index]"
-        >
+        <el-menu v-if="is_phone" :default-active="activeIndex" mode="horizontal" @select="select"
+                 :style="style[style_index]">
+
             <!-- 普通信息框 -->
             <el-submenu :index="String(navigation_item.length+1)">
                 <template slot="title">
                     <i class="el-icon-menu"></i>
                 </template>
-                <el-menu-item
-                        v-for="(item,index) in navigation_item"
-                        :key="index"
-                        :index="String(index)"
-                >{{item.name}}
+                <el-menu-item v-for="(item,index) in navigation_item" :key="index" :index="String(index)">{{item.name}}
                 </el-menu-item>
             </el-submenu>
         </el-menu>
@@ -48,8 +31,8 @@
         data() {
             return {
                 style: [
-                    "background-color:rgba(255,255,255,0.9)", // 鼠标移入
-                    "background-color:rgba(255,255,255,0.6)" // 鼠标移出
+                    "background-color:rgba(255,255,255,0.9);", // 鼠标移入
+                    "background-color:rgba(255,255,255,0.6);" // 鼠标移出
                 ], // 导航栏样式
                 style_index: 1, // 导航栏样式的数组下标
                 navigation_item: [
@@ -74,7 +57,6 @@
                         path: {name: "bilibili_save"}
                     }
                 ], // 导航内容数组
-                search_name: "" // 输入的搜索关键词
             };
         },
         props: {
@@ -106,7 +88,7 @@
     };
 </script>
 <style scoped>
-    .Navigation {
+    .Navigation{
         position: fixed;
         width: 100%;
         left: 0;

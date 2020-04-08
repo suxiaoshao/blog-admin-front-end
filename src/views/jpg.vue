@@ -1,69 +1,67 @@
 <template>
-    <div class="jpg">
-        <br><br><br>
-        <el-row v-loading="loading">
-            <el-col :xs="{span:24,offset:0}" :sm="{span:18,offset:3}" :md="{span:16,offset:4}">
+    <div class="jpg router">
+        <el-container>
+            <el-header>
+                <my-navigation active-index="1"></my-navigation>
+            </el-header>
 
-                <!-- 图片区 -->
-                <el-row :gutter="10">
-                    <el-col :xs="{span:24}" :sm="{span:12}" :md="{span:12}" :lg="{span:8}"
-                            v-for="(item,index) in real_list" :key="(index)">
-                        <el-card :body-style="{ padding: '0px' }">
-                            <img alt="" :src="`http://192.168.0.103:8082/img/jpg/${item.src}`"
-                                 style="width: 100%;display: block;"/>
-                            <div style="padding: 14px;">
-                                <el-link :href="item.url" :underline="false" target="_blank" type="primary"
-                                         v-if="item.url!==null"
-                                >{{item.tag}}
-                                </el-link>
+            <el-main>
+                <el-row v-loading="loading">
+                    <el-col :xs="{span:24,offset:0}" :sm="{span:18,offset:3}" :md="{span:16,offset:4}">
+
+                        <!-- 图片区 -->
+                        <el-row :gutter="10">
+                            <el-col :xs="{span:24}" :sm="{span:12}" :md="{span:12}" :lg="{span:8}"
+                                    v-for="(item,index) in real_list" :key="(index)">
+                                <el-card :body-style="{ padding: '0px' }">
+                                    <img alt="" :src="`http://localhost:8082/img/jpg/${item.src}`"
+                                         style="width: 100%;display: block;"/>
+                                    <div style="padding: 14px;">
+                                        <el-link :href="item.url" :underline="false" target="_blank" type="primary"
+                                                 v-if="item.url!==null"
+                                        >{{item.tag}}
+                                        </el-link>
+                                    </div>
+                                </el-card>
+                                <br>
+                            </el-col>
+                        </el-row>
+
+                        <!-- 分页栏 -->
+
+                        <div style="text-align: center;">
+                            <!-- 桌面端分页 -->
+                            <div v-show="!_isMobile">
+                                <br><br>
+                                <el-pagination :hide-on-single-page="true" @current-change="page_change"
+                                               :current-page.sync="page" :page-size="view_num"
+                                               layout="prev, pager, next, jumper" :total="jpg_num"></el-pagination>
                             </div>
-                        </el-card>
-                        <br>
+                            <div v-show="_isMobile">
+                                <!--                        <br>-->
+                                <el-pagination :hide-on-single-page="true" :pager-count="5"
+                                               @current-change="page_change" :current-page.sync="page"
+                                               :page-size="view_num" layout="prev, pager, next, jumper"
+                                               :total="jpg_num"></el-pagination>
+                            </div>
+                        </div>
                     </el-col>
                 </el-row>
-
-                <!-- 分页栏 -->
-
-                <div style="text-align: center;">
-                    <!-- 桌面端分页 -->
-                    <div v-show="!_isMobile">
-                        <br><br>
-                        <el-pagination
-                                :hide-on-single-page="true"
-                                @current-change="page_change"
-                                :current-page.sync="page"
-                                :page-size="view_num"
-                                layout="prev, pager, next, jumper"
-                                :total="jpg_num"
-                        ></el-pagination>
-                    </div>
-                    <div v-show="_isMobile">
-                        <!--                        <br>-->
-                        <el-pagination
-                                :hide-on-single-page="true"
-                                :pager-count="5"
-                                @current-change="page_change"
-                                :current-page.sync="page"
-                                :page-size="view_num"
-                                layout="prev, pager, next, jumper"
-                                :total="jpg_num"
-                        ></el-pagination>
-                    </div>
-                </div>
-
-            </el-col>
-        </el-row>
-        <my-navigation active-index="1"></my-navigation>
+                <record-show></record-show>
+            </el-main>
+        </el-container>
     </div>
 </template>
 
 <script>
     import navigation from "../components/navigation";
+    import record_shows from "../components/record_shows";
 
     export default {
         name: "jpg",
         components: {
-            "my-navigation": navigation
+            "my-navigation": navigation,
+            "record-show": record_shows
         },
         data() {
             return {
@@ -78,7 +76,7 @@
             //获得基础信息
             get_base() {
                 this.loading = true;
-                this.axios.get("http://192.168.0.103:8082/api/jpg/base").then(response => {
+                this.axios.get("http://localhost:8082/api/jpg/base").then(response => {
                     //成功返回
                     if (response.data.success) {
                         this.loading = false;
@@ -108,7 +106,7 @@
             get_list() {
                 this.loading = true;
                 this.real_list = [];// 图片列表清空
-                this.axios.post("http://192.168.0.103:8082/api/jpg/list", {
+                this.axios.post("http://localhost:8082/api/jpg/list", {
                     offset: (this.page - 1) * this.view_num,
                     limit: this.view_num
                 }).then(response => {

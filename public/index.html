@@ -11,9 +11,6 @@
   <% if(htmlWebpackPlugin.options.isProd) { %>
   <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
   <%  } %>
-<!--  <% if(!htmlWebpackPlugin.options.isProd) { %>-->
-<!--  <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>-->
-<!--  <%  } %>-->
 
   <!-- 引入element -->
   <% if(htmlWebpackPlugin.options.isProd) { %>
@@ -27,17 +24,9 @@
   <% if(htmlWebpackPlugin.options.isProd) { %>
   <script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.min.js"></script>
   <%  } %>
-<!--  <% if(!htmlWebpackPlugin.options.isProd) { %>-->
-<!--  <script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.js"></script>-->
-<!--  <%  } %>-->
-
-  <!-- 引入axios -->
   <% if(htmlWebpackPlugin.options.isProd) { %>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <%  } %>
-<!--  <% if(!htmlWebpackPlugin.options.isProd) { %>-->
-<!--  <script src="https://unpkg.com/axios/dist/axios.js"></script>-->
-<!--  <%  } %>-->
 </head>
 
 <body>
@@ -45,8 +34,7 @@
   <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
     Please enable it to continue.</strong>
 </noscript>
-<div id="app"></div>
-<!-- built files will be auto injected -->
+<div id="app"></div><style type="text/css">html, body, #app, .el-container ,.router {padding: 0;margin: 0;height: 100%;}</style>
 </body>
 
 </html>
