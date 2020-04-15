@@ -39,7 +39,7 @@
                             </div>
                             <div v-show="_isMobile">
                                 <!--                        <br>-->
-                                <el-pagination :hide-on-single-page="true" :pager-count="5"
+                                <el-pagination :hide-on-single-page="true" :pager-count="5" small
                                                @current-change="page_change" :current-page.sync="page"
                                                :page-size="view_num" layout="prev, pager, next, jumper"
                                                :total="jpg_num"></el-pagination>

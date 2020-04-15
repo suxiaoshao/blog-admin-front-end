@@ -90,7 +90,6 @@
                         this.$notify({
                             title: "提示",
                             message: "操作成功",
-                            duration: 0,
                             type: "success"
                         });
                         this.get_base()

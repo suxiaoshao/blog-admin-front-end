@@ -29,7 +29,7 @@
                         <div style="text-align: center;">
                             <el-pagination
                                     :hide-on-single-page="true"
-                                    :pager-count="5"
+                                    small
                                     @current-change="page_change"
                                     :current-page.sync="real_page"
                                     :page-size="limit"

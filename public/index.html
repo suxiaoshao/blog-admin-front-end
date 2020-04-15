@@ -2,39 +2,41 @@
 <html lang="cn">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <title><%= htmlWebpackPlugin.options.title %></title>
-  <!-- 引入vue -->
-  <% if(htmlWebpackPlugin.options.isProd) { %>
-  <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
-  <%  } %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- 引入vue -->
+    <% if(htmlWebpackPlugin.options.isProd) { %>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+    <% } %>
 
-  <!-- 引入element -->
-  <% if(htmlWebpackPlugin.options.isProd) { %>
-  <!-- 引入样式 -->
-  <link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
-  <!-- 引入组件库 -->
-  <script src="https://unpkg.com/element-ui@2.13.0/lib/index.js"></script>
-  <%  } %>
+    <!-- 引入element -->
+    <% if(htmlWebpackPlugin.options.isProd) { %>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui@2.13.0/lib/index.js"></script>
+    <% } %>
 
-  <!-- 引入vue-router -->
-  <% if(htmlWebpackPlugin.options.isProd) { %>
-  <script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.min.js"></script>
-  <%  } %>
-  <% if(htmlWebpackPlugin.options.isProd) { %>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <%  } %>
+    <!-- 引入vue-router -->
+    <% if(htmlWebpackPlugin.options.isProd) { %>
+    <script src="https://unpkg.com/vue-router@3.1.6/dist/vue-router.min.js"></script>
+    <% } %>
+    <% if(htmlWebpackPlugin.options.isProd) { %>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <% } %>
 </head>
 
 <body>
 <noscript>
-  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
-    Please enable it to continue.</strong>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
 </noscript>
-<div id="app"></div><style type="text/css">html, body, #app, .el-container ,.router {padding: 0;margin: 0;height: 100%;}</style>
+<div id="app"></div>
+<style type="text/css">html, body, #app, .el-container, .router {padding: 0;margin: 0;height: 100%;}body {background-image: url("https://www.sushao.top/api/blog/home/img/-1");background-repeat: no-repeat;background-attachment: fixed;background-size: cover}
+</style>
 </body>
 
 </html>

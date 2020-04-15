@@ -23,6 +23,11 @@ const routes = [
         path: "/bilibili_save",
         name: "bilibili_save",
         component: () => import("../views/bilibili_save")
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: () => import("../views/login")
     }
 ];
 export default routes

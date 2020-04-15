@@ -55,6 +55,10 @@
                     {
                         name: "bilibili操作",
                         path: {name: "bilibili_save"}
+                    },
+                    {
+                        name: "登录",
+                        path: {name: "login"}
                     }
                 ], // 导航内容数组
             };
@@ -88,7 +92,7 @@
     };
 </script>
 <style scoped>
-    .Navigation{
+    .Navigation {
         position: fixed;
         width: 100%;
         left: 0;
