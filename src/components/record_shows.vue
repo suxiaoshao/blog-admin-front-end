@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 #footer-info {
   color: #444;
   font-family: BlinkMacSystemFont, "Microsoft YaHei", "Segoe UI", Helvetica,

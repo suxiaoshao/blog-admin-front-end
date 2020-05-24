@@ -1,7 +1,7 @@
 // import Vue from 'vue'
 // import VueRouter from 'vue-router'
 import routes from "./routes"
-import {is_login} from "../assets/js/login";
+import {is_login} from "../util/login";
 
 Vue.use(VueRouter);
 

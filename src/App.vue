@@ -25,5 +25,5 @@
         z-index: -1;
     }
 </style>
-<style scoped>
+<style scoped lang="scss">
 </style>

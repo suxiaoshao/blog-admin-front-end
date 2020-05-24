@@ -57,6 +57,14 @@
                         path: {name: "bilibili_save"}
                     },
                     {
+                        name: "写blog",
+                        path: {name: "edit"}
+                    },
+                    {
+                        name: "blog列表",
+                        path: {name: "blog_list"}
+                    },
+                    {
                         name: "登录",
                         path: {name: "login"}
                     }
@@ -91,7 +99,7 @@
         }
     };
 </script>
-<style scoped>
+<style scoped lang="scss">
     .Navigation {
         position: fixed;
         width: 100%;

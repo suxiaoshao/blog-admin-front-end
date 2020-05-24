@@ -2,7 +2,7 @@
     <div id="login" class="router">
         <el-container>
             <el-header>
-                <my-navigation active-index="5"></my-navigation>
+                <my-navigation active-index="7"></my-navigation>
             </el-header>
             <el-main>
                 <el-row>
@@ -35,7 +35,7 @@
 </template>
 <script>
     import navigation from "../components/navigation";
-    import {string_to_md5_3} from "../assets/js/encryption";
+    import {string_to_md5_3} from "../util/encryption";
 
     export default {
         name: "login",
@@ -70,6 +70,6 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

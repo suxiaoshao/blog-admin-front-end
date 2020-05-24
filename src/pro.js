@@ -4,6 +4,7 @@ import router from './router/pro'
 // import './plugins/element'
 // import axios from 'axios'
 import VueParticles from 'vue-particles'
+import "./app.scss"
 
 
 Vue.config.productionTip = false;

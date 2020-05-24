@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router/index'
 import './plugins/element'
 import VueParticles from 'vue-particles'
+import "./app.scss"
 import axios from 'axios'
 
 
