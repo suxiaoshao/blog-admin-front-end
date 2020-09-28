@@ -1,10 +1,12 @@
-import React, { createContext, Dispatch, SetStateAction, useMemo, useState } from 'react';
+import React, { createContext, Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react';
 import { createMuiTheme, MuiThemeProvider, Theme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
+import { getTypeList } from '../../util/http';
 
 export interface ThemeContextProp {
   isDark: boolean;
   setDark: Dispatch<SetStateAction<boolean>>;
+  typeList: string[];
 }
 
 export const ThemeContext = createContext<ThemeContextProp>({
@@ -12,6 +14,7 @@ export const ThemeContext = createContext<ThemeContextProp>({
   setDark: () => {
     console.log(111);
   },
+  typeList: [],
 });
 
 export default function MyTheme(props: { children: React.ReactNode }): JSX.Element {
@@ -27,6 +30,14 @@ export default function MyTheme(props: { children: React.ReactNode }): JSX.Eleme
       },
     });
   }, [isDark]);
+  //类型数组
+  const [typeList, setTypeList] = useState<string[]>([]);
+  //获取图片数组
+  useEffect(() => {
+    getTypeList().then((data) => {
+      setTypeList(data.data.typeList);
+    });
+  }, []);
   return (
     <MuiThemeProvider theme={themeObject}>
       <CssBaseline />
@@ -34,6 +45,7 @@ export default function MyTheme(props: { children: React.ReactNode }): JSX.Eleme
         value={{
           isDark: isDark,
           setDark: setDark,
+          typeList: typeList,
         }}
       >
         <div className={isDark ? 'my-dark' : 'my-light'}>{props.children}</div>

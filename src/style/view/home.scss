@@ -1,0 +1,11 @@
+.home {
+  display: flex;
+
+  .article-list {
+    flex: 0 0 300px;
+  }
+
+  .article-content {
+    flex: 1 1 0;
+  }
+}

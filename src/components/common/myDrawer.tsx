@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { Brightness4, Brightness5, Home } from '@material-ui/icons';
-import '../style/components/myDrawer.scss';
+import '../../style/components/myDrawer.scss';
 import { useHistory, useLocation } from 'react-router-dom';
 import { ThemeContext } from './theme';
 
@@ -29,7 +29,7 @@ function DrawerListItem(props: DrawerListItemProp): JSX.Element {
 }
 
 const drawerList: DrawerListItemProp[] = [{ text: '文章列表', pathname: '/', icon: <Home /> }];
-export default function MyDrawer(props: { children?: React.ReactNode }): JSX.Element {
+export default function MyDrawer(props: { children?: React.ReactNode; className?: string }): JSX.Element {
   const { isDark, setDark } = useContext(ThemeContext);
   return (
     <div className="my-drawer">
@@ -52,7 +52,7 @@ export default function MyDrawer(props: { children?: React.ReactNode }): JSX.Ele
           </ListItem>
         </List>
       </Drawer>
-      <main>{props.children}</main>
+      <main className={props.className}>{props.children}</main>
     </div>
   );
 }

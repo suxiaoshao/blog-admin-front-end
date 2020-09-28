@@ -1,0 +1,30 @@
+.article-form {
+  .search-input {
+    margin-top: 5px;
+    width: 100%;
+  }
+
+  .selected-form {
+    margin-top: 7px;
+    display: flex;
+
+    .selected-item {
+      flex: 1 1 0;
+    }
+  }
+
+  .type-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    > * {
+      margin: 3px;
+    }
+  }
+
+  .button-form {
+    width: calc(100% - 10px);
+    margin-left: 5px;
+  }
+}
