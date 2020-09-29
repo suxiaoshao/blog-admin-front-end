@@ -10,6 +10,10 @@
     flex: 1 1 0;
     overflow: auto;
   }
+  .load-button{
+    margin: 0 1px;
+    width: calc(100% - 2px);
+  }
 }
 .my-light{
   .my-article-list{

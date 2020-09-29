@@ -15,7 +15,7 @@ export default function Home(): JSX.Element {
         activeAid={activeAid}
         className="article-list"
       />
-      <ArticleContent className="article-content" />
+      <ArticleContent aid={activeAid} className="article-content" />
     </MyDrawer>
   );
 }

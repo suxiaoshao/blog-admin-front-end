@@ -3,12 +3,12 @@ import ArticleForm from './articleForm';
 import { ArticleInfoItem, getArticleList, getArticleNum } from '../../util/http';
 import { articleLimit } from '../../util/config';
 import ArticleItem from './articleItem';
-import { List } from '@material-ui/core';
+import { Button, List, Typography } from '@material-ui/core';
 import '../../style/components/articleList.scss';
 
 interface ArticleListProp {
   className?: string;
-  activeAid?: number;
+  activeAid: number | undefined;
   onChangeActive: (aid: number | undefined) => void;
 }
 
@@ -91,6 +91,15 @@ export default function ArticleList(props: ArticleListProp): JSX.Element {
           />
         ))}
       </List>
+      <Button
+        className="load-button"
+        onClick={() => {
+          getDataList(articleList.length).then();
+        }}
+        disabled={articleNum <= articleList.length}
+      >
+        <Typography variant="h6">{articleNum <= articleList.length ? '已经到底了' : '加载'}</Typography>
+      </Button>
     </div>
   );
 }
