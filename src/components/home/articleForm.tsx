@@ -18,6 +18,7 @@ import { Add } from '@material-ui/icons';
 //表单
 export default function ScreenForm(props: {
   onSubmit?: (searchName: string, sort: 1 | -1, allType: boolean, typeList: number[]) => void;
+  className?: string;
 }): JSX.Element {
   //展示的搜索
   const [searchName, setSearchName] = useState<string>('');
@@ -45,7 +46,7 @@ export default function ScreenForm(props: {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   return (
-    <div className="article-form">
+    <div className={'article-form' + (props.className ? ' ' + props.className : '')}>
       {/*搜索输入框*/}
       <TextField
         label="搜索内容"
@@ -138,9 +139,10 @@ export default function ScreenForm(props: {
         </Menu>
       </div>
       <Button
+        size="large"
         variant="contained"
         color="primary"
-        className="button-form"
+        className="button-width"
         onClick={() => {
           props?.onSubmit(searchName, sort, allType, typeList);
         }}

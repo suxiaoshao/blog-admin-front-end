@@ -1,4 +1,5 @@
 .article-form {
+  margin: 0 3px;
   .search-input {
     margin-top: 5px;
     width: 100%;
@@ -21,10 +22,5 @@
     > * {
       margin: 3px;
     }
-  }
-
-  .button-form {
-    width: calc(100% - 10px);
-    margin-left: 5px;
   }
 }

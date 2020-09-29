@@ -1,0 +1,9 @@
+.list-item {
+  .un-active-text {
+    > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.my-article-list{
+  display: flex;
+  flex-direction: column;
+  background-color: #3e4149;
+  .form{
+    flex: 0 0 auto;
+  }
+  .list{
+    margin-top: 5px;
+    flex: 1 1 0;
+    overflow: auto;
+  }
+}
+.my-light{
+  .my-article-list{
+    background-color: #eeeeee;
+  }
+}
