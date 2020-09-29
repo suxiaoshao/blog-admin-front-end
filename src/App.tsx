@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './view/home';
 import MyTheme from './components/common/theme';
 import './style/app.scss';
+import Edit from './view/edit';
 
 export default function App(): JSX.Element {
   return (
@@ -13,7 +14,9 @@ export default function App(): JSX.Element {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/article/:aid">222</Route>
+            <Route path="/edit/:aid">
+              <Edit />
+            </Route>
           </Switch>
         </MyTheme>
       </Router>

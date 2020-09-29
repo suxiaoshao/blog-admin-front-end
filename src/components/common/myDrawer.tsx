@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { Brightness4, Brightness5, Home } from '@material-ui/icons';
+import { Brightness4, Brightness5, Edit, Home } from '@material-ui/icons';
 import '../../style/components/common/myDrawer.scss';
 import { useHistory, useLocation } from 'react-router-dom';
 import { ThemeContext } from './theme';
@@ -28,7 +28,14 @@ function DrawerListItem(props: DrawerListItemProp): JSX.Element {
   );
 }
 
-const drawerList: DrawerListItemProp[] = [{ text: '文章列表', pathname: '/', icon: <Home /> }];
+const drawerList: DrawerListItemProp[] = [
+  { text: '文章列表', pathname: '/', icon: <Home /> },
+  {
+    text: '新博客',
+    pathname: '/edit/0',
+    icon: <Edit />,
+  },
+];
 export default function MyDrawer(props: { children?: React.ReactNode; className?: string }): JSX.Element {
   const { isDark, setDark } = useContext(ThemeContext);
   return (

@@ -6,6 +6,8 @@
         "dayjs": "^1.9.1",
         "fontsource-roboto": "^3.0.3",
         "markdown-to-jsx": "^7.0.0",
+        "monaco-editor": "^0.21.2",
+        "monaco-themes": "^0.3.3",
         "prismjs": "^1.21.0",
         "qs": "^6.9.4",
         "react": "^16.13.1",

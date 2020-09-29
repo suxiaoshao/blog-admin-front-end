@@ -15,6 +15,7 @@ import { AccessAlarm, ChatBubble, ExpandLess, ExpandMore, Style, Visibility } fr
 import '../../style/components/home/articleItem.scss';
 import { ThemeContext } from '../common/theme';
 import { getFormatTime } from '../../util/time';
+import { useHistory } from 'react-router-dom';
 
 interface ArticleItemProp extends ArticleInfoItem {
   active: boolean;
@@ -26,6 +27,7 @@ type InfoListProp = Omit<ArticleInfoItem, 'title'>;
 
 function InfoList(props: InfoListProp): JSX.Element {
   const { typeList } = useContext(ThemeContext);
+  const myHistory = useHistory();
   return (
     <>
       <List>
@@ -58,7 +60,13 @@ function InfoList(props: InfoListProp): JSX.Element {
           </ListItemText>
         </ListItem>
       </List>
-      <Button size="large" className={'button-width'}>
+      <Button
+        size="large"
+        className={'button-width'}
+        onClick={() => {
+          myHistory.push(`/edit/${props.aid}`);
+        }}
+      >
         修改
       </Button>
     </>
