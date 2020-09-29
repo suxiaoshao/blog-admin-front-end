@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { Brightness4, Brightness5, Home } from '@material-ui/icons';
-import '../../style/components/myDrawer.scss';
+import '../../style/components/common/myDrawer.scss';
 import { useHistory, useLocation } from 'react-router-dom';
 import { ThemeContext } from './theme';
 

@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import { ArticleInfoItem } from '../../util/http';
 import { AccessAlarm, ChatBubble, ExpandLess, ExpandMore, Style, Visibility } from '@material-ui/icons';
-import '../../style/components/articleItem.scss';
+import '../../style/components/home/articleItem.scss';
 import { ThemeContext } from '../common/theme';
 import { getFormatTime } from '../../util/time';
 

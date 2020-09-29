@@ -11,7 +11,7 @@ import {
   Select,
   TextField,
 } from '@material-ui/core';
-import '../../style/components/articleForm.scss';
+import '../../style/components/home/articleForm.scss';
 import { ThemeContext } from '../common/theme';
 import { Add } from '@material-ui/icons';
 

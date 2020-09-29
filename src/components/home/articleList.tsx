@@ -4,7 +4,7 @@ import { ArticleInfoItem, getArticleList, getArticleNum } from '../../util/http'
 import { articleLimit } from '../../util/config';
 import ArticleItem from './articleItem';
 import { Button, List, Typography } from '@material-ui/core';
-import '../../style/components/articleList.scss';
+import '../../style/components/home/articleList.scss';
 
 interface ArticleListProp {
   className?: string;

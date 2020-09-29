@@ -37,6 +37,11 @@ export interface ArticleListData {
   articleList: ArticleInfoItem[];
 }
 
+//文章内容数据
+export interface ArticleContent extends ArticleInfoItem {
+  content: string;
+}
+
 //获取类型数组
 export async function getTypeList(): Promise<WebInterface<TypeList>> {
   const res = await axios.get<WebInterface<TypeList>>('/typeList');
@@ -87,4 +92,10 @@ export async function getArticleList(
       ),
   );
   return response.data;
+}
+
+//获取文章内容
+export async function getArticleContent(aid: number): Promise<WebInterface<ArticleContent>> {
+  const res = await axios.get<WebInterface<ArticleContent>>(`/article/${aid}`);
+  return res.data;
 }

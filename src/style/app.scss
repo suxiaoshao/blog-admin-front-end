@@ -1,3 +1,4 @@
+$scroll: 7px;
 * {
   .my-dark {
 
@@ -17,14 +18,14 @@
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: $scroll;
+    height: $scroll;
   }
 
-  scrollbar-width: 8px;
+  scrollbar-width: $scroll;
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
+    border-radius: $scroll/2;
   }
 }
 

@@ -1,0 +1,83 @@
+.my-markdown {
+  margin: 5px;
+  padding: 7px;
+  .my-link {
+    display: inline-block;
+    margin: 0 5px 0 5px;
+  }
+  .code-toolbar{
+    margin: 15px 0 15px 0;
+    width: 100%;
+    overflow: auto;
+    ::-webkit-scrollbar-thumb{
+      background-color: #ffffff40;
+    }
+    pre{
+      max-height: 500px;
+      code{
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+    }
+    .toolbar{
+      right: 1em;
+    }
+  }
+  .my-blockquote{
+    margin: 15px 0 15px 0;
+    padding: 3px 5px 3px 5px;
+    border-radius: 2px;
+  }
+  .code-inline{
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+    margin: 0 5px 0 5px;
+    font-size: 17px;
+  }
+  .MuiTypography-body1{
+    margin: 16px 0 16px 0;
+    line-height: 2em;
+    font-size: 17px;
+  }
+}
+.my-dark {
+  .my-markdown {
+    .my-link {
+      color: rgb(255, 87, 51);
+      &:hover {
+        background-color: rgba(255, 87, 51, 0.3);
+      }
+    }
+    .my-blockquote{
+      background-color: #33425b;
+      border-left:4px solid #aa96da;
+    }
+    li{
+      white-space:normal;
+      word-break : break-all;
+      word-wrap: break-word;
+    }
+    .code-inline{
+      background-color: #48466d;
+      color: #86cdcf;
+    }
+  }
+}
+.my-light {
+  .my-markdown {
+    .my-link {
+      color: rgb(7, 121, 228);
+      &:hover {
+        background-color: rgba(7, 121, 228, 0.3);
+      }
+    }
+    .my-blockquote{
+      background-color: rgb(234, 237, 257);
+      border-left:4px solid #aa96da;
+    }
+    .code-inline{
+      background-color: #cadefc;
+      color: #3d84a8;
+    }
+  }
+}
