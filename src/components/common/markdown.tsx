@@ -87,7 +87,7 @@ function MyCode(props: { children: string; className?: string }) {
 function MyPre(props: { children: string }) {
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  }, [props]);
   return (
     <div>
       <pre className="line-numbers">{props.children}</pre>

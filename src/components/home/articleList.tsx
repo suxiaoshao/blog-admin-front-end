@@ -62,9 +62,6 @@ export default function ArticleList(props: ArticleListProp): JSX.Element {
     listDiv.current.scrollTop = oldHeight;
   }, [articleList]);
 
-  useEffect(() => {
-    console.log(searchName, sort, allType, typeList);
-  }, [allType, searchName, sort, typeList]);
   return (
     <div className={(props.className ? props.className + ' ' : '') + 'my-article-list'} ref={listDiv}>
       <ArticleForm

@@ -1,0 +1,31 @@
+.edit-form {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #3e4149;
+
+  .title-input {
+    flex: 0 0 auto;
+  }
+
+  .type-input {
+    flex: 1 1 0;
+    padding-left: 10px;
+
+    max-width: calc(100% - 210.2px);
+
+    .type-form {
+      white-space: nowrap;
+      overflow-x: auto;
+      > * {
+        margin: 0 3px;
+      }
+    }
+  }
+
+  .send-button {
+    flex: 0 0 auto;
+    margin: 0 5px;
+  }
+}

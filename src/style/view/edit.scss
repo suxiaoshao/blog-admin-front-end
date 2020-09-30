@@ -1,3 +1,17 @@
-.edit{
+.edit {
   display: flex;
+  flex-direction: column;
+  max-height: 100%;
+
+  .edit-area {
+    max-height: calc(100% - 64px);
+    flex: 1 1 0;
+    display: flex;
+
+    .markdown-preview {
+      flex: 1 1 0;
+      background-color: #323232;
+      overflow: auto;
+    }
+  }
 }

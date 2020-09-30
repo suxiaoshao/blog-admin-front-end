@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../../style/components/edit/markdownCode.scss';
+import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { editor } from 'monaco-editor/esm/vs/editor/editor.api';
 import 'monaco-editor/esm/vs/basic-languages/markdown/markdown.contribution';
 import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
@@ -34,7 +35,10 @@ export default function MarkdownCode(props: MarkdownCodeProps): JSX.Element {
     };
   }, [divRef]);
   useEffect(() => {
-    myEditor?.onKeyDown(() => {
+    myEditor?.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S, () => {
+      props.onChange(myEditor.getValue());
+    });
+    myEditor?.onMouseLeave(() => {
       props.onChange(myEditor.getValue());
     });
   }, [myEditor]);
