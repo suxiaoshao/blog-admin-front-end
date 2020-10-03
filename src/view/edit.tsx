@@ -5,7 +5,7 @@ import MarkdownCode from '../components/edit/markdownCode';
 import MyMarkdown from '../components/common/markdown';
 import EditForm from '../components/edit/editForm';
 import { useLocation } from 'react-router-dom';
-import { getArticleContent } from '../util/http';
+import { getArticleContent, postUpdateArticle } from '../util/http';
 
 export default function Edit(): JSX.Element {
   const [content, setContent] = useState<string>('');
@@ -49,7 +49,10 @@ export default function Edit(): JSX.Element {
           setTypeList(value);
         }}
         onClickSend={() => {
-          console.log(title, typeList, content);
+          postUpdateArticle(aid, title, content, typeList).then((res) => {
+            if (!res.success) {
+            }
+          });
         }}
       />
       <div className="edit-area">

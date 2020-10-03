@@ -4,6 +4,7 @@ import Home from './view/home';
 import MyTheme from './components/common/theme';
 import './style/app.scss';
 import Edit from './view/edit';
+import Login from './view/login';
 
 export default function App(): JSX.Element {
   return (
@@ -16,6 +17,9 @@ export default function App(): JSX.Element {
             </Route>
             <Route path="/edit/:aid">
               <Edit />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
           </Switch>
         </MyTheme>

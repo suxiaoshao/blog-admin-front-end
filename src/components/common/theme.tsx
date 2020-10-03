@@ -27,6 +27,9 @@ export default function MyTheme(props: { children: React.ReactNode }): JSX.Eleme
     return createMuiTheme({
       palette: {
         type: isDark ? 'dark' : 'light',
+        primary: {
+          main: '#3f72af'
+        },
       },
     });
   }, [isDark]);

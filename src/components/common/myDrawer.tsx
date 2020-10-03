@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { Brightness4, Brightness5, Edit, Home } from '@material-ui/icons';
+import { Brightness4, Brightness5, Edit, Home, VpnKey } from '@material-ui/icons';
 import '../../style/components/common/myDrawer.scss';
 import { useHistory, useLocation } from 'react-router-dom';
 import { ThemeContext } from './theme';
@@ -34,6 +34,11 @@ const drawerList: DrawerListItemProp[] = [
     text: '新博客',
     pathname: '/edit/0',
     icon: <Edit />,
+  },
+  {
+    text: '登陆',
+    pathname: '/login',
+    icon: <VpnKey />,
   },
 ];
 export default function MyDrawer(props: { children?: React.ReactNode; className?: string }): JSX.Element {

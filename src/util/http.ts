@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { baseUrl } from './config';
+import { visitorUrl } from './config';
 import qs from 'qs';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = baseUrl;
+axios.defaults.baseURL = visitorUrl;
 
 //web数据基本形式
 export interface WebInterface<T = never> {
@@ -44,7 +44,7 @@ export interface ArticleContent extends ArticleInfoItem {
 
 //获取类型数组
 export async function getTypeList(): Promise<WebInterface<TypeList>> {
-  const res = await axios.get<WebInterface<TypeList>>('/typeList');
+  const res = await axios.get<WebInterface<TypeList>>('/visitor/typeList');
   return res.data;
 }
 
@@ -55,7 +55,7 @@ export async function getArticleNum(
   allType: boolean,
 ): Promise<WebInterface<ArticleNumData>> {
   const response = await axios.get<WebInterface<ArticleNumData>>(
-    '/articleNum?' +
+    '/visitor/articleNum?' +
       qs.stringify(
         {
           searchName: searchName,
@@ -78,7 +78,7 @@ export async function getArticleList(
   allType: boolean,
 ): Promise<WebInterface<ArticleListData>> {
   const response = await axios.get<WebInterface<ArticleListData>>(
-    '/articleList?' +
+    '/visitor/articleList?' +
       qs.stringify(
         {
           offset: offset,
@@ -96,6 +96,31 @@ export async function getArticleList(
 
 //获取文章内容
 export async function getArticleContent(aid: number): Promise<WebInterface<ArticleContent>> {
-  const res = await axios.get<WebInterface<ArticleContent>>(`/article/${aid}`);
+  const res = await axios.get<WebInterface<ArticleContent>>(`/visitor/article/${aid}`);
+  return res.data;
+}
+
+// 发送文章
+
+export async function postUpdateArticle(
+  aid: number,
+  title: string,
+  content: string,
+  typeList: number[],
+): Promise<WebInterface<ArticleContent>> {
+  const res = await axios.post<WebInterface<ArticleContent>>('/admin/article', {
+    aid: aid,
+    title: title,
+    content: content,
+    typeList: typeList,
+  });
+  return res.data;
+}
+
+export async function loginPost(pid: string, uid: string): Promise<WebInterface> {
+  const res = await axios.post<WebInterface>('/admin/login', {
+    password: pid,
+    user: uid,
+  });
   return res.data;
 }
