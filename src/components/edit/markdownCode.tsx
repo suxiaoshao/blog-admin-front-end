@@ -42,5 +42,10 @@ export default function MarkdownCode(props: MarkdownCodeProps): JSX.Element {
       props.onChange(myEditor.getValue());
     });
   }, [myEditor]);
+  useEffect(() => {
+    if (props.defaultValue !== myEditor?.getValue()) {
+      myEditor?.setValue(props.defaultValue);
+    }
+  }, [props.defaultValue]);
   return <div ref={divRef} className="markdown-code" />;
 }

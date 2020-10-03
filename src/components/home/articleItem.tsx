@@ -27,7 +27,7 @@ type InfoListProp = Omit<ArticleInfoItem, 'title'>;
 
 function InfoList(props: InfoListProp): JSX.Element {
   const { typeList } = useContext(ThemeContext);
-  const myHistory = useHistory();
+  const myHistory = useHistory<{ aid: number }>();
   return (
     <>
       <List>
@@ -64,7 +64,7 @@ function InfoList(props: InfoListProp): JSX.Element {
         size="large"
         className={'button-width'}
         onClick={() => {
-          myHistory.push(`/edit/${props.aid}`);
+          myHistory.push({ pathname: `/edit/${props.aid}` });
         }}
       >
         修改
