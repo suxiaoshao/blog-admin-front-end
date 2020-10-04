@@ -4,7 +4,7 @@ import MyDrawer from '../components/common/myDrawer';
 import MarkdownCode from '../components/edit/markdownCode';
 import MyMarkdown from '../components/common/markdown';
 import EditForm from '../components/edit/editForm';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { getArticleContent, postUpdateArticle } from '../util/http';
 
 export default function Edit(): JSX.Element {
@@ -17,6 +17,7 @@ export default function Edit(): JSX.Element {
   const [aid, setAid] = useState<number>(0);
   // 路由信息
   const myLocation = useLocation();
+  const myHistory = useHistory();
   useEffect(() => {
     const routerAid = myLocation.pathname.match(/edit\/(?<aid>.*)/)?.groups?.['aid'];
     if (routerAid !== '0' && routerAid !== undefined) {
@@ -40,6 +41,7 @@ export default function Edit(): JSX.Element {
   return (
     <MyDrawer className="edit">
       <EditForm
+        content={content}
         title={title}
         onTitleChange={(value) => {
           setTitle(value);
@@ -51,6 +53,9 @@ export default function Edit(): JSX.Element {
         onClickSend={() => {
           postUpdateArticle(aid, title, content, typeList).then((res) => {
             if (!res.success) {
+              myHistory.push('/login');
+            } else {
+              myHistory.push('/');
             }
           });
         }}

@@ -16,6 +16,8 @@ export default function ArticleContent(props: { className?: string; aid: undefin
           divList.current.scrollTop = 0;
         }
       });
+    } else {
+      setArticleContent('');
     }
   }, [props.aid]);
   return (

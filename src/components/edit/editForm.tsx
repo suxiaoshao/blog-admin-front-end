@@ -10,6 +10,7 @@ interface EditFormProp {
   typeList: number[];
   onTypeListChange: (value: number[]) => void;
   onClickSend: () => void;
+  content: string;
 }
 
 export default function EditForm(prop: EditFormProp): JSX.Element {
@@ -92,6 +93,7 @@ export default function EditForm(prop: EditFormProp): JSX.Element {
         </div>
       </div>
       <IconButton
+        disabled={prop.title === '' || prop.content === ''}
         className="send-button"
         onClick={() => {
           prop.onClickSend();

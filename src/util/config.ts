@@ -1,2 +1,2 @@
 export const articleLimit = 10;
-export const visitorUrl = 'http://localhost:8082/api';
+export const visitorUrl = 'https://www.sushao.top/api';
